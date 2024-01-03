@@ -1,0 +1,17 @@
+import mongoose from "mongoose";
+
+const orderSchema=mongoose.Schema(
+    {
+        "email":{
+            type:String,
+            required:true,
+            unique:true
+        },
+        "order_data":{
+            type:Array,
+            required:true
+        }
+    }
+)
+
+export const order=mongoose.model('Orders',orderSchema)
