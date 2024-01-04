@@ -13,7 +13,13 @@ const PORT=process.env.PORT||5000;
 dotenv.config({path:'./config.env'})
 
 // middleware for allowing only authorize weppage access
-app.use(cors())
+app.use(cors(
+    {
+        origin:["https://food-ordering-site-gray.vercel.app"],
+        methods:["POST","GET"],
+        credentials:true
+    }
+))
 // to parse the incoming JSON request and make it available in request.body object
 app.use(express.json())
 
